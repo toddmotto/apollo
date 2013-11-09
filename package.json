@@ -1,0 +1,31 @@
+{
+  "name": "Apollo",
+  "version": "1.0.0",
+  "homepage": "https://github.com/toddmotto/apollo",
+  "author": "Todd Motto",
+  "year" : "2013",
+  "description": "Standalone class manipulation API for HTML5 and legacy DOM",
+  "author": {
+    "name": "Todd Motto",
+    "email": "todd@toddmotto.com",
+    "url": "http://toddmotto.com",
+    "github" : "https://github.com/toddmotto"
+  },
+  "licenses": [{
+    "type": "MIT"
+  }],
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.7.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-contrib-watch": "~0.4.4",
+    "connect-livereload": "~0.2.0",
+    "grunt-open": "~0.2.0",
+    "matchdep": "~0.1.2"
+  },
+  "peerDependencies": {
+    "grunt-cli": "*"
+  }
+}

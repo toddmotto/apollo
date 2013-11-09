@@ -1,0 +1,21 @@
+{
+  "node": false,
+  "browser": false,
+  "esnext": false,
+  "bitwise": false,
+  "camelcase": false,
+  "curly": false,
+  "eqeqeq": false,
+  "immed": false,
+  "indent": 2,
+  "latedef": false,
+  "newcap": false,
+  "noarg": false,
+  "quotmark": "single",
+  "regexp": false,
+  "undef": false,
+  "unused": false,
+  "strict": false,
+  "trailing": false,
+  "smarttabs": false
+}
