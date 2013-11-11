@@ -1,5 +1,5 @@
 /*!
- *  Apollo v1.1.0
+ *  Apollo v1.2.0
  *  Standalone class manipulation API for HTML5 and legacy DOM
  *  Project: https://github.com/toddmotto/apollo
  *  by Todd Motto: http://toddmotto.com
@@ -41,11 +41,8 @@ window.Apollo = (function (window, document, undefined) {
       if (classList) {
         elem.classList.toggle(className);
       } else {
-        if (this.hasClass(elem, className)) {
-          this.removeClass(elem, className);
-        } else {
-          this.addClass(elem, className);
-        }
+        var toggle = this.hasClass(elem, className) ? this.removeClass : this.addClass;
+        toggle(elem, className);
       }
     }
   };

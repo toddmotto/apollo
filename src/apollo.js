@@ -34,11 +34,8 @@ window.Apollo = (function (window, document, undefined) {
       if (classList) {
         elem.classList.toggle(className);
       } else {
-        if (this.hasClass(elem, className)) {
-          this.removeClass(elem, className);
-        } else {
-          this.addClass(elem, className);
-        }
+        var toggle = this.hasClass(elem, className) ? this.removeClass : this.addClass;
+        toggle(elem, className);
       }
     }
   };
