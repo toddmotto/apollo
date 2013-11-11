@@ -1,5 +1,5 @@
 /*!
- *  Apollo v1.0.1
+ *  Apollo v1.1.0
  *  Standalone class manipulation API for HTML5 and legacy DOM
  *  Project: https://github.com/toddmotto/apollo
  *  by Todd Motto: http://toddmotto.com
@@ -20,19 +20,19 @@ window.Apollo = (function (window, document, undefined) {
       }
     },
     addClass: function (elem, className) {
-      if (!this.hasClass(elem, className)) {
-        if (classList) {
-          elem.classList.add(className);
-        } else {
+      if (classList) {
+        elem.classList.add(className);
+      } else {
+        if (!this.hasClass(elem, className)) {
           elem.className += (elem.className ? ' ' : '') + className;
         }
       }
     },
     removeClass: function (elem, className) {
-      if (this.hasClass(elem, className)) {
-        if (classList) {
-          elem.classList.remove(className);
-        } else {
+      if (classList) {
+        elem.classList.remove(className);
+      } else {
+        if (this.hasClass(elem, className)) {
           elem.className = elem.className.replace(new RegExp('(^|\\s)*' + className + '(\\s|$)*', 'g'), '');
         }
       }
