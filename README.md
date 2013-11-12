@@ -1,6 +1,6 @@
 # Apollo.js [![Build Status](https://travis-ci.org/toddmotto/apollo.png)](https://travis-ci.org/toddmotto/apollo)
 
-Apollo is a &lt;1KB standalone DOM class manipulation API for adding, removing, toggling and testing the existence of classes on an element. Under the hood, Apollo uses the HTML5 `classList` API when available and fallbacks to manual class manipulation for legacy support.
+Apollo is a &lt;1KB standalone DOM class manipulation API for adding, removing, toggling and testing the existence of classes on an element. Under the hood, Apollo uses the HTML5 `classList` API when available and fallbacks to manual class manipulation for legacy support. IE6+ for legacy and all HTMl5 browsers.
 
 ### addClass API
 To add a class using Apollo, use the `addClass` API, which takes an element and a single class name.
