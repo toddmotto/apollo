@@ -6,7 +6,7 @@ window.Apollo = (function (window, document) {
 
   var apollo = {};
 
-  if(classList) {
+  if(classList) {
 
     apollo.hasClass = function (elem, className) {
       return elem.classList.contains(className);
