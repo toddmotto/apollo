@@ -42,8 +42,8 @@ Drop your files into your required folders, make sure you're using the files fro
 	
 ```html
 <body>
-	<!-- html content above -->
-	<script src="dist/apollo.js"></script>
+  <!-- html content above -->
+  <script src="dist/apollo.js"></script>
   <script>
   Apollo.addClass(document.body, 'js');
   </script>
