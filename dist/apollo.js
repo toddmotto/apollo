@@ -1,10 +1,4 @@
-/*!
- *  Apollo v1.2.1
- *  Standalone class manipulation API for HTML5 and legacy DOM
- *  Project: https://github.com/toddmotto/apollo
- *  by Todd Motto: http://toddmotto.com
- *  Copyright. MIT licensed.
- */
+/*! Apollo v1.2.1 | (c) 2013 @toddmotto | MIT license | github.com/toddmotto/apollo */
 window.Apollo = (function (window, document, undefined) {
 
   'use strict';
