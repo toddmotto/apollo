@@ -1,46 +1,49 @@
-/*! Apollo v1.2.1 | (c) 2013 @toddmotto | MIT license | github.com/toddmotto/apollo */
-window.Apollo = (function (window, document, undefined) {
+/*! Apollo v1.3.0 | (c) 2014 @toddmotto | MIT license | github.com/toddmotto/apollo */
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['Apollo'], factory);
+  } else {
+    root.Apollo = factory();
+  }
+})(this, function () {
 
   'use strict';
 
-  var classList = document.documentElement.classList;
+  var exports = {};
 
-  var apollo = {
-    hasClass: function (elem, className) {
-      if (classList) {
-        return elem.classList.contains(className);
-      } else {
-        return new RegExp('(^|\\s)' + className + '(\\s|$)').test(elem.className);
+  if (document.documentElement.classList) {
+    exports.hasClass = function (elem, className) {
+      return elem.classList.contains(className);
+    };
+    exports.addClass = function (elem, className) {
+      elem.classList.add(className);
+    };
+    exports.removeClass = function (elem, className) {
+      elem.classList.remove(className);
+    };
+    exports.toggleClass = function (elem, className) {
+      elem.classList.toggle(className);
+    };
+  } else {
+    exports.hasClass = function (elem, className) {
+      return new RegExp('(^|\\s)' + className + '(\\s|$)').test(elem.className);
+    };
+    exports.addClass = function (elem, className) {
+      if (!exports.hasClass(elem, className)) {
+        elem.className += (elem.className ? ' ' : '') + className;
       }
-    },
-    addClass: function (elem, className) {
-      if (classList) {
-        elem.classList.add(className);
-      } else {
-        if (!apollo.hasClass(elem, className)) {
-          elem.className += (elem.className ? ' ' : '') + className;
-        }
+    };
+    exports.removeClass = function (elem, className) {
+      if (exports.hasClass(elem, className)) {
+        elem.className = elem.className.replace(new RegExp('(^|\\s)*' + className + '(\\s|$)*', 'g'), '');
       }
-    },
-    removeClass: function (elem, className) {
-      if (classList) {
-        elem.classList.remove(className);
-      } else {
-        if (apollo.hasClass(elem, className)) {
-          elem.className = elem.className.replace(new RegExp('(^|\\s)*' + className + '(\\s|$)*', 'g'), '');
-        }
-      }
-    },
-    toggleClass: function (elem, className) {
-      if (classList) {
-        elem.classList.toggle(className);
-      } else {
-        var toggle = apollo.hasClass(elem, className) ? apollo.removeClass : apollo.addClass;
-        toggle(elem, className);
-      }
-    }
-  };
+    };
+    exports.toggleClass = function (elem, className) {
+      var toggle = exports.hasClass(elem, className) ? exports.removeClass : exports.addClass;
+      toggle(elem, className);
+    };
+  }
 
-  return apollo;
+  return exports;
 
-})(window, document);
+});
