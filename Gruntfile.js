@@ -3,7 +3,7 @@
 /**
  * Grunt setup
  */
- module.exports = function(grunt) {
+module.exports = function(grunt) {
 
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
@@ -19,7 +19,7 @@
       core: ['<%= project.src %>/<%= project.filename %>.js']
     },
 
-    banner: '/*! <%= pkg.title %> v<%= pkg.version %> | (c) <%= grunt.template.today(\'yyyy\') %> @toddmotto | MIT license | <%= pkg.homepage %> */\n',
+    banner: '/*! <%= pkg.title %> v<%= pkg.version %> | (c) <%= grunt.template.today(\'yyyy\') %> @toddmotto | <%= pkg.homepage %> */\n',
 
     jshint: {
       gruntfile: 'Gruntfile.js',

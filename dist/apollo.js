@@ -1,4 +1,4 @@
-/*! Apollo v1.3.0 | (c) 2014 @toddmotto | MIT license | github.com/toddmotto/apollo */
+/*! Apollo v1.4.0 | (c) 2014 @toddmotto | github.com/toddmotto/apollo */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['Apollo'], factory);
@@ -9,40 +9,69 @@
 
   'use strict';
 
-  var exports = {};
+  var exports = {}, _hasClass, _addClass, _removeClass, _toggleClass;
+
+  var _forEach = function (array, callback) {
+    array = array.split(' ');
+    for (var i = 0; i < array.length; i++) {
+      callback(array[i], i);
+    }
+  };
 
   if (document.documentElement.classList) {
-    exports.hasClass = function (elem, className) {
+    _hasClass = function (elem, className) {
       return elem.classList.contains(className);
     };
-    exports.addClass = function (elem, className) {
+    _addClass = function (elem, className) {
       elem.classList.add(className);
     };
-    exports.removeClass = function (elem, className) {
+    _removeClass = function (elem, className) {
       elem.classList.remove(className);
     };
-    exports.toggleClass = function (elem, className) {
+    _toggleClass = function (elem, className) {
       elem.classList.toggle(className);
     };
   } else {
-    exports.hasClass = function (elem, className) {
+    _hasClass = function (elem, className) {
       return new RegExp('(^|\\s)' + className + '(\\s|$)').test(elem.className);
     };
-    exports.addClass = function (elem, className) {
+    _addClass = function (elem, className) {
       if (!exports.hasClass(elem, className)) {
         elem.className += (elem.className ? ' ' : '') + className;
       }
     };
-    exports.removeClass = function (elem, className) {
+    _removeClass = function (elem, className) {
       if (exports.hasClass(elem, className)) {
         elem.className = elem.className.replace(new RegExp('(^|\\s)*' + className + '(\\s|$)*', 'g'), '');
       }
     };
-    exports.toggleClass = function (elem, className) {
+    _toggleClass = function (elem, className) {
       var toggle = exports.hasClass(elem, className) ? exports.removeClass : exports.addClass;
       toggle(elem, className);
     };
   }
+
+  exports.hasClass = function (elem, className) {
+    return _hasClass(elem, className);
+  };
+
+  exports.addClass = function (elem, classes) {
+    _forEach(classes, function (className) {
+      _addClass(elem, className);
+    });
+  };
+
+  exports.removeClass = function (elem, classes) {
+    _forEach(classes, function (className) {
+      _removeClass(elem, className);
+    });
+  };
+
+  exports.toggleClass = function (elem, classes) {
+    _forEach(classes, function (className) {
+      _toggleClass(elem, className);
+    });
+  };
 
   return exports;
 

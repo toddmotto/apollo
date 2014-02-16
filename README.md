@@ -1,12 +1,22 @@
 # Apollo.js [![Build Status](https://travis-ci.org/toddmotto/apollo.png)](https://travis-ci.org/toddmotto/apollo)
 
-Apollo is a 0.8KB standalone DOM class manipulation module that provides a cross-browser wrapper for `addClass`, `hasClass`, `removeClass` and `toggleClass` methods. Apollo uses the modern and blazing fast `classList` methods when available, and falls back to manual class manipulation for legacy support, meaning IE6+ support through to Chrome.
+Apollo is a 1KB standalone DOM class manipulation module that provides a cross-browser wrapper for `addClass`, `hasClass`, `removeClass` and `toggleClass` methods. Apollo uses the modern and blazing fast `classList` methods when available, and falls back to manual class manipulation for legacy support, meaning IE6+ support through to Chrome.
 
 ```javascript
-Apollo.hasClass(element, className); // returns boolean
-Apollo.addClass(element, className); // adds class
-Apollo.removeClass(element, className); // removes class
-Apollo.toggleClass(element, className); // toggles class
+// hasClass() returns boolean on single class
+Apollo.hasClass(element, 'className1');
+
+// addClass() adds single or multiple classes
+Apollo.addClass(element, 'className1'); // single
+Apollo.addClass(element, 'className1 className2'); // multiple
+
+// removeClass() removes single or multiple classes
+Apollo.removeClass(element, 'className1'); // single
+Apollo.removeClass(element, 'className1 className2'); // multiple
+
+// toggleClass() toggles single or multiple classes
+Apollo.toggleClass(element, 'className1'); // single
+Apollo.toggleClass(element, 'className1 className2'); // multiple
 ```
 
 ## Installing with Bower
@@ -34,6 +44,8 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release history
 
+- 1.4.0
+  - Support for adding/removing/toggling multiple classes
 - 1.3.0
   - Add Jasmine tests
   - Add AMD support
