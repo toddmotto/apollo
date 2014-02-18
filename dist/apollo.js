@@ -1,7 +1,9 @@
-/*! Apollo v1.4.0 | (c) 2014 @toddmotto | github.com/toddmotto/apollo */
+/*! Apollo v1.5.0 | (c) 2014 @toddmotto | github.com/toddmotto/apollo */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['Apollo'], factory);
+    define([], factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory;
   } else {
     root.Apollo = factory();
   }
