@@ -44,6 +44,8 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release history
 
+- 1.5.0
+  - Add CommonJS/Browserify support
 - 1.4.0
   - Support for adding/removing/toggling multiple classes
 - 1.3.0
