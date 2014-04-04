@@ -13,7 +13,9 @@
   var exports = {}, _hasClass, _addClass, _removeClass, _toggleClass;
 
   var _forEach = function (array, callback) {
-    array = array.split(' ');
+    if (array instanceof Array === false) {
+      array = array.split(' ');
+    }
     for (var i = 0; i < array.length; i++) {
       callback(array[i], i);
     }
