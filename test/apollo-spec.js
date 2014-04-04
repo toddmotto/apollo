@@ -25,6 +25,7 @@ describe('Apollo', function () {
       elem = $$('.fakeElem1');
       Apollo.addClass(elem, 'fakeAddClass1');
       Apollo.addClass(elem, 'fakeAddClass2 fakeAddClass3');
+      Apollo.addClass(elem, ['fakeAddClass4', 'fakeAddClass5']);
     });
 
     it('should add a single class', function () {
@@ -34,6 +35,11 @@ describe('Apollo', function () {
     it('should add multiple classes', function () {
       expect(elem.classList.contains('fakeAddClass2')).toBe(true);
       expect(elem.classList.contains('fakeAddClass3')).toBe(true);
+    });
+    
+    it('should add multiple classes passed in as array', function () {
+      expect(elem.classList.contains('fakeAddClass4')).toBe(true);
+      expect(elem.classList.contains('fakeAddClass5')).toBe(true);
     });
 
   });
@@ -70,9 +76,10 @@ describe('Apollo', function () {
     beforeEach(function () {
       injectElem('fakeElem3');
       elem = $$('.fakeElem3');
-      Apollo.addClass(elem, 'fakeRemoveClass1 fakeRemoveClass2');
+      Apollo.addClass(elem, 'fakeRemoveClass1 fakeRemoveClass2 fakeRemoveClass3 fakeRemoveClass4');
       Apollo.removeClass(elem, 'fakeElem3');
       Apollo.removeClass(elem, 'fakeRemoveClass1 fakeRemoveClass2');
+      Apollo.removeClass(elem, ['fakeRemoveClass3', 'fakeRemoveClass4']);
     });
 
     it('should remove a single class', function () {
@@ -84,6 +91,10 @@ describe('Apollo', function () {
       expect(Apollo.hasClass(elem, 'fakeRemoveClass2')).toBe(false);
     });
 
+    it('should remove multiple classes passed in as array', function () {
+      expect(Apollo.hasClass(elem, 'fakeRemoveClass3')).toBe(false);
+      expect(Apollo.hasClass(elem, 'fakeRemoveClass4')).toBe(false);
+    });
   });
 
   /**
@@ -98,6 +109,8 @@ describe('Apollo', function () {
       elem = $$('.fakeElem4');
       Apollo.toggleClass(elem, 'fakeElem4Toggle1');
       Apollo.toggleClass(elem, 'fakeElem4Toggle2 fakeElem4');
+      Apollo.toggleClass(elem, ['fakeElem4Toggle3', 'fakeElemToggle4']);
+      Apollo.toggleClass(elem, ['fakeElemToggle4']);
     });
 
     it('should toggle a single class', function () {
@@ -107,6 +120,11 @@ describe('Apollo', function () {
     it('should toggle multiple classes', function () {
       expect(Apollo.hasClass(elem, 'fakeElem4Toggle2')).toBe(true);
       expect(Apollo.hasClass(elem, 'fakeElem4')).toBe(false);
+    });
+
+    it('should toggle multiple classes passed in as array', function () {
+      expect(Apollo.hasClass(elem, 'fakeElem4Toggle3')).toBe(true);
+      expect(Apollo.hasClass(elem, 'fakeElem4Toggle4')).toBe(false);
     });
 
   });
