@@ -1,7 +1,7 @@
-/*! Apollo v1.5.0 | (c) 2014 @toddmotto | github.com/toddmotto/apollo */
+/*! Apollo v1.6.0 | (c) 2014 @toddmotto | github.com/toddmotto/apollo */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define([], factory);
+    define(factory);
   } else if (typeof exports === 'object') {
     module.exports = factory;
   } else {
@@ -13,10 +13,12 @@
 
   var exports = {}, _hasClass, _addClass, _removeClass, _toggleClass;
 
-  var _forEach = function (array, callback) {
-    array = array.split(' ');
-    for (var i = 0; i < array.length; i++) {
-      callback(array[i], i);
+  var _forEach = function (classes, callback) {
+    if (Object.prototype.toString.call(classes) !== '[object Array]') {
+      classes = classes.split(' ');
+    }
+    for (var i = 0; i < classes.length; i++) {
+      callback(classes[i], i);
     }
   };
 

@@ -4,19 +4,26 @@ Apollo is a 1KB standalone DOM class manipulation module that provides a cross-b
 
 ```javascript
 // hasClass() returns boolean on single class
-Apollo.hasClass(element, 'className1');
+Apollo.hasClass(element, 'className1'); single as string
+Apollo.hasClass(element, ['className1']); single as array
 
 // addClass() adds single or multiple classes
-Apollo.addClass(element, 'className1'); // single
-Apollo.addClass(element, 'className1 className2'); // multiple
+Apollo.addClass(element, 'className1'); // single as string
+Apollo.addClass(element, ['className1']); // single as array
+Apollo.addClass(element, 'className1 className2'); // multiple in string
+Apollo.addClass(element, ['className1' ,'className2']); // multiple as array
 
 // removeClass() removes single or multiple classes
-Apollo.removeClass(element, 'className1'); // single
-Apollo.removeClass(element, 'className1 className2'); // multiple
+Apollo.removeClass(element, 'className1'); // single as string
+Apollo.removeClass(element, ['className1']); // single as array
+Apollo.removeClass(element, 'className1 className2'); // multiple in string
+Apollo.removeClass(element, ['className1' ,'className2']); // multiple as array
 
 // toggleClass() toggles single or multiple classes
-Apollo.toggleClass(element, 'className1'); // single
-Apollo.toggleClass(element, 'className1 className2'); // multiple
+Apollo.toggleClass(element, 'className1'); // single as string
+Apollo.toggleClass(element, ['className1']); // single as array
+Apollo.toggleClass(element, 'className1 className2'); // multiple in string
+Apollo.toggleClass(element, ['className1' ,'className2']); // multiple as array
 ```
 
 ## Installing with Bower
@@ -28,13 +35,14 @@ bower install https://github.com/toddmotto/apollo.git
 
 ## Manual installation
 Ensure you're using the files from the `dist` directory (contains compiled production-ready code). Ensure you place the script before the closing `</body>` tag.
-	
+
 ```html
-<body>
+<body class="no-js">
   <!-- html above -->
   <script src="dist/apollo.js"></script>
   <script>
-  Apollo.addClass(document.body, 'js');
+	Apollo.addClass(document.body, 'js');
+  Apollo.removeClass(document.body, 'no-js');
   </script>
 </body>
 ```
@@ -44,8 +52,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release history
 
+- 1.6.0
+	- Array of classes support, syntax improvements
 - 1.5.0
-  - Add CommonJS/Browserify support
+	- Add CommonJS/Browserify support
 - 1.4.0
   - Support for adding/removing/toggling multiple classes
 - 1.3.0

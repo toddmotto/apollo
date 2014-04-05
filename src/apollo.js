@@ -1,6 +1,6 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
-    define([], factory);
+    define(factory);
   } else if (typeof exports === 'object') {
     module.exports = factory;
   } else {
@@ -12,12 +12,12 @@
 
   var exports = {}, _hasClass, _addClass, _removeClass, _toggleClass;
 
-  var _forEach = function (array, callback) {
-    if (array instanceof Array === false) {
-      array = array.split(' ');
+  var _forEach = function (classes, callback) {
+    if (Object.prototype.toString.call(classes) !== '[object Array]') {
+      classes = classes.split(' ');
     }
-    for (var i = 0; i < array.length; i++) {
-      callback(array[i], i);
+    for (var i = 0; i < classes.length; i++) {
+      callback(classes[i], i);
     }
   };
 
