@@ -1,4 +1,4 @@
-# Apollo.js [![Build Status](https://travis-ci.org/toddmotto/apollo.png)](https://travis-ci.org/toddmotto/apollo)
+# Apollo.js [![Build Status](https://travis-ci.org/toddmotto/apollo.svg)](https://travis-ci.org/toddmotto/apollo)
 
 Apollo is a 1KB standalone DOM class manipulation module that provides a cross-browser wrapper for `addClass`, `hasClass`, `removeClass` and `toggleClass` methods. Apollo uses the modern and blazing fast `classList` methods when available, and falls back to manual class manipulation for legacy support, meaning IE6+ support through to Chrome.
 
@@ -48,10 +48,13 @@ Ensure you're using the files from the `dist` directory (contains compiled produ
 ```
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using Grunt.
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using Gulp.
 
 ## Release history
 
+- 1.7.0
+  - Use lowercase module definition
+  - Move to Gulp
 - 1.6.0
 	- Array of classes support, syntax improvements
 - 1.5.0

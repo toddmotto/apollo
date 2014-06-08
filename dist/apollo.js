@@ -1,82 +1,83 @@
-/*! Apollo v1.6.0 | (c) 2014 @toddmotto | github.com/toddmotto/apollo */
+/*! apollo.js v1.7.0 | (c) 2014 @toddmotto | https://github.com/toddmotto/apollo */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(factory);
   } else if (typeof exports === 'object') {
     module.exports = factory;
   } else {
-    root.Apollo = factory();
+    root.apollo = factory();
   }
 })(this, function () {
 
   'use strict';
 
-  var exports = {}, _hasClass, _addClass, _removeClass, _toggleClass;
+  var apollo = {};
 
-  var _forEach = function (classes, callback) {
-    if (Object.prototype.toString.call(classes) !== '[object Array]') {
-      classes = classes.split(' ');
+  var hasClass, addClass, removeClass, toggleClass;
+
+  var forEach = function (items, fn) {
+    if (Object.prototype.toString.call(items) !== '[object Array]') {
+      items = items.split(' ');
     }
-    for (var i = 0; i < classes.length; i++) {
-      callback(classes[i], i);
+    for (var i = 0; i < items.length; i++) {
+      fn(items[i], i);
     }
   };
 
-  if (document.documentElement.classList) {
-    _hasClass = function (elem, className) {
+  if ('classList' in document.documentElement) {
+    hasClass = function (elem, className) {
       return elem.classList.contains(className);
     };
-    _addClass = function (elem, className) {
+    addClass = function (elem, className) {
       elem.classList.add(className);
     };
-    _removeClass = function (elem, className) {
+    removeClass = function (elem, className) {
       elem.classList.remove(className);
     };
-    _toggleClass = function (elem, className) {
+    toggleClass = function (elem, className) {
       elem.classList.toggle(className);
     };
   } else {
-    _hasClass = function (elem, className) {
+    hasClass = function (elem, className) {
       return new RegExp('(^|\\s)' + className + '(\\s|$)').test(elem.className);
     };
-    _addClass = function (elem, className) {
-      if (!exports.hasClass(elem, className)) {
+    addClass = function (elem, className) {
+      if (!hasClass(elem, className)) {
         elem.className += (elem.className ? ' ' : '') + className;
       }
     };
-    _removeClass = function (elem, className) {
-      if (exports.hasClass(elem, className)) {
+    removeClass = function (elem, className) {
+      if (hasClass(elem, className)) {
         elem.className = elem.className.replace(new RegExp('(^|\\s)*' + className + '(\\s|$)*', 'g'), '');
       }
     };
-    _toggleClass = function (elem, className) {
-      var toggle = exports.hasClass(elem, className) ? exports.removeClass : exports.addClass;
-      toggle(elem, className);
+    toggleClass = function (elem, className) {
+      (hasClass(elem, className) ? removeClass : addClass)(elem, className);
     };
   }
 
-  exports.hasClass = function (elem, className) {
-    return _hasClass(elem, className);
+  apollo.hasClass = function (elem, className) {
+    return hasClass(elem, className);
   };
 
-  exports.addClass = function (elem, classes) {
-    _forEach(classes, function (className) {
-      _addClass(elem, className);
+  apollo.addClass = function (elem, classes) {
+    forEach(classes, function (className) {
+      addClass(elem, className);
     });
   };
 
-  exports.removeClass = function (elem, classes) {
-    _forEach(classes, function (className) {
-      _removeClass(elem, className);
+  apollo.removeClass = function (elem, classes) {
+    forEach(classes, function (className) {
+      removeClass(elem, className);
     });
   };
 
-  exports.toggleClass = function (elem, classes) {
-    _forEach(classes, function (className) {
-      _toggleClass(elem, className);
+  apollo.toggleClass = function (elem, classes) {
+    forEach(classes, function (className) {
+      toggleClass(elem, className);
     });
   };
 
-  return exports;
+  return apollo;
 
 });
