@@ -4,26 +4,26 @@ Apollo is a 1KB standalone DOM class manipulation module that provides a cross-b
 
 ```javascript
 // hasClass() returns boolean on single class
-Apollo.hasClass(element, 'className1'); single as string
-Apollo.hasClass(element, ['className1']); single as array
+apollo.hasClass(element, 'className1'); single as string
+apollo.hasClass(element, ['className1']); single as array
 
 // addClass() adds single or multiple classes
-Apollo.addClass(element, 'className1'); // single as string
-Apollo.addClass(element, ['className1']); // single as array
-Apollo.addClass(element, 'className1 className2'); // multiple in string
-Apollo.addClass(element, ['className1', 'className2']); // multiple as array
+apollo.addClass(element, 'className1'); // single as string
+apollo.addClass(element, ['className1']); // single as array
+apollo.addClass(element, 'className1 className2'); // multiple in string
+apollo.addClass(element, ['className1', 'className2']); // multiple as array
 
 // removeClass() removes single or multiple classes
-Apollo.removeClass(element, 'className1'); // single as string
-Apollo.removeClass(element, ['className1']); // single as array
-Apollo.removeClass(element, 'className1 className2'); // multiple in string
-Apollo.removeClass(element, ['className1', 'className2']); // multiple as array
+apollo.removeClass(element, 'className1'); // single as string
+apollo.removeClass(element, ['className1']); // single as array
+apollo.removeClass(element, 'className1 className2'); // multiple in string
+apollo.removeClass(element, ['className1', 'className2']); // multiple as array
 
 // toggleClass() toggles single or multiple classes
-Apollo.toggleClass(element, 'className1'); // single as string
-Apollo.toggleClass(element, ['className1']); // single as array
-Apollo.toggleClass(element, 'className1 className2'); // multiple in string
-Apollo.toggleClass(element, ['className1', 'className2']); // multiple as array
+apollo.toggleClass(element, 'className1'); // single as string
+apollo.toggleClass(element, ['className1']); // single as array
+apollo.toggleClass(element, 'className1 className2'); // multiple in string
+apollo.toggleClass(element, ['className1', 'className2']); // multiple as array
 ```
 
 ## Installing with Bower
@@ -41,8 +41,8 @@ Ensure you're using the files from the `dist` directory (contains compiled produ
   <!-- html above -->
   <script src="dist/apollo.js"></script>
   <script>
-  Apollo.addClass(document.body, 'js');
-  Apollo.removeClass(document.body, 'no-js');
+  apollo.addClass(document.body, 'js');
+  apollo.removeClass(document.body, 'no-js');
   </script>
 </body>
 ```
