@@ -77,6 +77,51 @@
     });
   };
 
+  apollo.fade = function( type, el, duration ) = function(){
+    var isIn     = (type == 'in'),
+        opacity  = isIn ? 0 : 1,
+        interval = 50,
+        gap      = interval / duration;
+
+      el.style.filter = 'alpha(opacity=' + opacity + ')';
+      el.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' + opacity + ')';
+        
+      if(isIn) {
+        el.style.display = 'block';
+        el.style.opacity = opacity;
+      }
+
+      var fading = window.setInterval(function(){
+        opacity = isIn ? opacity + gap : opacity - gap; 
+        el.style.opacity = opacity;
+        
+        if(opacity <= 0 || opacity >= 1) 
+          window.clearInterval(fading);
+
+        if(opacity <= 0)
+          el.style.display = "none";
+
+      }, interval);
+  };
+
+  apollo.animate = function(elem,style,target,duration){
+    var start = new Date().getTime(),
+        timer = setInterval(function() {
+            var step = Math.min(1,(new Date().getTime()-start)/duration);
+            var from = elem.style[style];
+            var unit = '';
+            if(target.indexOf('px') > -1) { unit = 'px'; }
+
+            elem.style[style] = (from+step*(target-from))+unit;
+
+            if( step == 1) 
+              clearInterval(timer);
+        },25);
+        
+    elem.style[style] = from+unit;
+
+  }
+
   return apollo;
 
 });
