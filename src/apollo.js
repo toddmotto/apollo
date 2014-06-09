@@ -77,7 +77,7 @@
     });
   };
 
-  apollo.fade = function( type, el, duration ) = function(){
+  apollo.fade = function( type, el, duration ) {
     var isIn     = (type == 'in'),
         opacity  = isIn ? 0 : 1,
         interval = 50,
@@ -106,21 +106,20 @@
 
   apollo.animate = function(elem,style,target,duration){
     var start = new Date().getTime(),
+        current = elem.style[style],
+        unit = (target.indexOf('px') > -1) ? 'px' : '',
         timer = setInterval(function() {
             var step = Math.min(1,(new Date().getTime()-start)/duration);
-            var from = elem.style[style];
-            var unit = '';
-            if(target.indexOf('px') > -1) { unit = 'px'; }
 
-            elem.style[style] = (from+step*(target-from))+unit;
+            elem.style[style] = (current+step*(target-current))+unit;
 
             if( step == 1) 
               clearInterval(timer);
         },25);
         
-    elem.style[style] = from+unit;
+    elem.style[style] = current+unit;
 
-  }
+  };
 
   return apollo;
 
