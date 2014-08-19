@@ -1,0 +1,12 @@
+{
+    "name": "apollo.js",
+    "authors": "Todd Motto",
+    "description": "Standalone cross-browser DOM class manipulation module",
+    "version": "1.7.0",
+    "main": "dist/apollo.js",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:toddmotto/apollo.git"
+    }
+}

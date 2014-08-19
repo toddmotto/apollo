@@ -27,7 +27,12 @@ apollo.toggleClass(element, ['className1', 'className2']); // multiple as array
 ```
 
 ## Installing with Bower
-Use the repository hook:
+
+```
+bower install apollo.js
+```
+
+or use the repository hook:
 
 ```
 bower install https://github.com/toddmotto/apollo.git
